@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Standortüberprüfung </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="checkLocation()">Standort überprüfen</ion-button>
+  <p *ngIf="withinRange">Sie befinden sich im Umkreis!</p>
+  <p *ngIf="!withinRange">Sie sind außerhalb des Umkreises.</p>
+</ion-content>

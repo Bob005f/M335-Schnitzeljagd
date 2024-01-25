@@ -5,6 +5,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="nextPage()" *ngIf="isUpsideDown">Weiter</ion-button>
+  <ion-button routerLink="/task2" *ngIf="isUpsideDown">Weiter</ion-button>
   <p *ngIf="!isUpsideDown">Bitte das Gerät auf den Kopf stellen</p>
 </ion-content>
