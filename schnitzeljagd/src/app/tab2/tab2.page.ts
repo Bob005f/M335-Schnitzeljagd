@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Motion } from '@capacitor/motion';
+import { RouterModule } from '@angular/router';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
-import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import {
@@ -26,13 +26,14 @@ import { NgIf } from '@angular/common';
     IonContent,
     ExploreContainerComponent,
     IonButton,
+    RouterModule,
     NgIf,
   ],
 })
 export class Tab2Page {
   public isUpsideDown = false;
 
-  constructor(private router: Router) {
+  constructor() {
     this.watchDeviceOrientation();
   }
   async watchDeviceOrientation() {
@@ -41,8 +42,5 @@ export class Tab2Page {
         this.isUpsideDown = true;
       }
     });
-  }
-  nextPage() {
-    this.router.navigate(['/task2']);
   }
 }
