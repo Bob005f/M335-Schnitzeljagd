@@ -6,6 +6,7 @@ import {
   IonContent,
 } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { Camera, CameraResultType } from '@capacitor/camera';
 
 @Component({
   selector: 'app-tab1',
@@ -17,8 +18,6 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
     IonToolbar,
     IonTitle,
     IonContent,
-    IonButton,
-    IonAlert,
     ExploreContainerComponent,
   ],
 })
