@@ -1,17 +1,18 @@
 <ion-header [translucent]="true">
-
+  <ion-title> SCHNITZELJAGD </ion-title>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-title> SCHNITZELJAGD </ion-title>
   <ion-button (click)="setOpen(true)">Teilnehmen</ion-button>
   <ion-alert
     [isOpen]="isAlertOpen"
     header="Name eingeben"
     [buttons]="confirmName"
     (didDismiss)="setOpen(false)"
-    >
-    <ion-input placeholder="Hier kommt dein Name"></ion-input>
+  >
+    <ion-item>
+      <ion-input placeholder="Hier kommt dein Name"></ion-input>
+    </ion-item>
   </ion-alert>
   <ion-header collapse="condense">
     <ion-toolbar>
