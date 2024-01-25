@@ -1,11 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-title> SCHNITZELJAGD </ion-title>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button id="present-alert">Teilnehmen</ion-button>
+  <ion-title> SCHNITZELJAGD </ion-title>
+  <ion-button class="part-btn" id="alert-call">Teilnehmen</ion-button>
   <ion-alert
-    trigger="present-alert"
+    trigger="alert-call"
     header="Name eingeben"
     [buttons]="confirmName"
     [inputs]="inputName"
@@ -16,6 +17,15 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-list>
+    <ion-item>
+      <ion-label><p>name</p></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label><p>name</p></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label><p>name</p></ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -3,7 +3,7 @@ import {
   IonHeader,
   IonToolbar,
   IonTitle,
-  IonContent, IonButton, IonAlert, IonItem, IonInput,
+  IonContent, IonButton, IonAlert, IonItem, IonInput, IonLabel, IonList,
 } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { Camera, CameraResultType } from '@capacitor/camera';
@@ -23,6 +23,8 @@ import { Camera, CameraResultType } from '@capacitor/camera';
     IonAlert,
     IonItem,
     IonInput,
+    IonLabel,
+    IonList,
   ],
 })
 export class Tab1Page {
