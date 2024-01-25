@@ -4,6 +4,10 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
+  IonButton,
+  IonAlert,
+  IonItem,
+  IonInput,
 } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { Camera, CameraResultType } from '@capacitor/camera';
@@ -19,9 +23,19 @@ import { Camera, CameraResultType } from '@capacitor/camera';
     IonTitle,
     IonContent,
     ExploreContainerComponent,
+    IonButton,
+    IonAlert,
+    IonItem,
+    IonInput,
   ],
 })
 export class Tab1Page {
+  isAlertOpen = false;
+  confirmName = ['Bestätigen'];
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
+  }
+
   constructor() {}
   async openCamera() {
     const image = await Camera.getPhoto({
