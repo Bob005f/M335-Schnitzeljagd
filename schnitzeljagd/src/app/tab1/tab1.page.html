@@ -3,16 +3,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button (click)="setOpen(true)">Teilnehmen</ion-button>
+  <ion-button id="present-alert">Teilnehmen</ion-button>
   <ion-alert
-    [isOpen]="isAlertOpen"
+    trigger="present-alert"
     header="Name eingeben"
     [buttons]="confirmName"
-    (didDismiss)="setOpen(false)"
+    [inputs]="inputName"
   >
-    <ion-item>
-      <ion-input placeholder="Hier Name eingeben bitte"></ion-input>
-    </ion-item>
   </ion-alert>
   <ion-header collapse="condense">
     <ion-toolbar>

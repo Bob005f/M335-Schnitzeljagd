@@ -26,12 +26,6 @@ import { Camera, CameraResultType } from '@capacitor/camera';
   ],
 })
 export class Tab1Page {
-  isAlertOpen = false;
-  confirmName = ['Bestätigen'];
-  setOpen(isOpen: boolean) {
-    this.isAlertOpen = isOpen;
-  }
-
   constructor() {}
   async openCamera() {
     const image = await Camera.getPhoto({
@@ -46,4 +40,11 @@ export class Tab1Page {
     // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
     var imageUrl = image.webPath;
   }
+
+  public confirmName = ['Bestätigen'];
+  public inputName = [
+    {
+      placeholder: 'Name',
+    }
+  ];
 }
