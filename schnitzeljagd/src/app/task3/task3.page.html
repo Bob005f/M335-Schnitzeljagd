@@ -1,11 +1,37 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Standortüberprüfung </ion-title>
+    <ion-title>task1</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-button (click)="checkLocation()">Standort überprüfen</ion-button>
-  <p *ngIf="withinRange">Sie befinden sich im Umkreis!</p>
-  <p *ngIf="!withinRange">Sie sind außerhalb des Umkreises.</p>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Geolocation</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button id="leave" shape="round">Abbrechen</ion-button>
+  <ion-alert
+    trigger="leave"
+    header="Willst du wirklich abbrechen?"
+    [buttons]="alertButtons"
+  ></ion-alert>
+
+  <ion-button (click)="nextPage()">continue</ion-button>
+
+  <ion-label>
+    Befindet euch in den vorgegebenen Koordinaten um weiter zu gehen
+  </ion-label>
+  <ion-label>Ziel: latitude: 47.072024 longitude: 8.3489759</ion-label>
+
+  <ion-label>Current Latitude: {{ currentLocation.latitude }}</ion-label>
+  <ion-label>Current Longitude: {{ currentLocation.longitude }}</ion-label>
+
+  <ion-label *ngIf="coordinatesMatch"> Ziel erreicht</ion-label>
+
+  <ion-button *ngIf="coordinatesMatch" (click)="nextPage()"
+  >continue</ion-button
+  >
+  {{coordinatesMatch}}
 </ion-content>
