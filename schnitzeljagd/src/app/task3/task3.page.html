@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>task1</ion-title>
+    <ion-title>Geolocation</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,8 +18,9 @@
     header="Willst du wirklich abbrechen?"
     [buttons]="alertButtons"
   ></ion-alert>
+  <ion-button routerLink="/task2" *ngIf="coordinatesMatch">Weiter</ion-button>
 
-  <ion-button (click)="nextPage()">continue</ion-button>
+  <!--testing purpose btn-->
 
   <ion-label>
     Befindet euch in den vorgegebenen Koordinaten um weiter zu gehen

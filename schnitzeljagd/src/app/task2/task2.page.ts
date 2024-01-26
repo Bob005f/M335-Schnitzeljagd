@@ -8,6 +8,7 @@ import { Haptics } from '@capacitor/haptics';
 import { RouterLink } from '@angular/router';
 import { camera } from 'ionicons/icons';
 import { IonButton } from '@ionic/angular/standalone';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-task2',

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> QR Scanning </ion-title>
+    <ion-title> Gerät Orientierung </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,12 +12,7 @@
     header="Willst du wirklich abbrechen?"
     [buttons]="alertButtons"
   ></ion-alert>
-  <ion-button routerLink="/task3">Zurück</ion-button>
-  <ion-button routerLink="/task1" *ngIf="CorrectQRCodescanned"
-    >Weiter</ion-button
-  >
-
-  <ion-button (click)="startScan()"> Start Scan </ion-button>
-
-  <p *ngIf="WrongQRCodeScanned">Falscher QR-Code</p>
+  <ion-button routerLink="/task2" *ngIf="isUpsideDown">Zurück</ion-button>
+  <ion-button routerLink="/task4" *ngIf="isUpsideDown">Weiter</ion-button>
+  <p *ngIf="!isUpsideDown">Bitte das Gerät auf den Kopf stellen</p>
 </ion-content>
