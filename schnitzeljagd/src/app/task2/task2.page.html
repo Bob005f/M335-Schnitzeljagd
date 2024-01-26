@@ -6,4 +6,5 @@
 
 <ion-content>
   <ion-button (click)="startScan()"> Start Scan </ion-button>
+  <ion-button *ngIf="CorrectQRCode" routerLink="/next-page">Weiter</ion-button>
 </ion-content>
