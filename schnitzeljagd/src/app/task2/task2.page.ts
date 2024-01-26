@@ -7,13 +7,14 @@ import { AlertController } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
 import { RouterLink } from '@angular/router';
 import { camera } from 'ionicons/icons';
+import { IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-task2',
   templateUrl: './task2.page.html',
   styleUrls: ['./task2.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink],
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink, IonButton],
 })
 export class Task2Page implements OnInit {
   Supported: boolean = true;
