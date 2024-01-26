@@ -1,10 +1,14 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Gerät Orientierung </ion-title>
+    <ion-title>task1</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-button routerLink="/task2" *ngIf="isUpsideDown">Weiter</ion-button>
-  <p *ngIf="!isUpsideDown">Bitte das Gerät auf den Kopf stellen</p>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Schnitzeljagd</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button routerLink="/task3">Start</ion-button>
 </ion-content>

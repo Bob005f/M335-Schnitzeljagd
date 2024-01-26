@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div>Verstrichene Zeit: {{ timeElapsed }} Sekunden</div>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Geolocation</ion-title>
@@ -29,9 +30,5 @@
   <ion-label>Current Longitude: {{ currentLocation.longitude }}</ion-label>
 
   <ion-label *ngIf="coordinatesMatch"> Ziel erreicht</ion-label>
-
-  <ion-button *ngIf="coordinatesMatch" (click)="nextPage()"
-  >continue</ion-button
-  >
   {{coordinatesMatch}}
 </ion-content>

@@ -5,6 +5,18 @@
 </ion-header>
 
 <ion-content>
+  <div>Verstrichene Zeit: {{ timeElapsed }} Sekunden</div>
+  <ion-button id="leave" shape="round">Abbrechen</ion-button>
+  <ion-alert
+    trigger="leave"
+    header="Willst du wirklich abbrechen?"
+    [buttons]="alertButtons"
+  ></ion-alert>
+  <ion-button routerLink="/task3">Zurück</ion-button>
+  <ion-button routerLink="/task1" *ngIf="CorrectQRCodescanned"
+    >Weiter</ion-button
+  >
+
   <ion-button (click)="startScan()"> Start Scan </ion-button>
   <ion-button routerLink="/task4" *ngIf="CorrectQRCodescanned"
     >Weiter</ion-button

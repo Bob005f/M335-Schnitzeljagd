@@ -22,9 +22,37 @@ export class Task2Page implements OnInit {
   CorrectQRCodescanned: boolean = false;
   WrongQRCodeScanned: boolean = false;
   barcodes: Barcode[] = [];
-  constructor(private alertController: AlertController) {}
+  timeElapsed: number = 0;
+  private intervalId: any;
 
-  ngOnInit() {}
+  constructor(
+    private alertController: AlertController,
+    private router: Router,
+  ) {}
+  public alertButtons = [
+    {
+      text: 'Nein',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'Ja',
+      role: 'confirm',
+      handler: () => {
+        console.log('Alert confirmed');
+        this.router.navigate(['/tabs']);
+      },
+    },
+  ];
+
+  async ngOnInit() {
+    this.startTimer();
+    if (this.CorrectQRCodescanned) {
+      await Haptics.vibrate({ duration: 500 });
+    }
+  }
 
   async startScan() {
     if ((await BarcodeScanner.scan()).barcodes[0].rawValue == 'M335@ICT-BZ') {
@@ -38,9 +66,16 @@ export class Task2Page implements OnInit {
       await Haptics.vibrate({ duration: 10 });
     }
   }
+
   async reqPermission(): Promise<boolean> {
     const { camera: CameraPermissionState } =
       await BarcodeScanner.requestPermissions();
     return camera === 'granted' || camera === 'Limited';
+  }
+
+  private startTimer() {
+    this.intervalId = setInterval(() => {
+      this.timeElapsed++;
+    }, 1000);
   }
 }

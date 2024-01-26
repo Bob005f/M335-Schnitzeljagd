@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Geolocation } from '@capacitor/geolocation';
 import { log } from '@angular-devkit/build-angular/src/builders/ssr-dev-server';
 import { NgZone } from '@angular/core';
@@ -12,9 +12,12 @@ import { NgZone } from '@angular/core';
   templateUrl: './task3.page.html',
   styleUrls: ['./task3.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule],
+
+  imports: [IonicModule, CommonModule, FormsModule, RouterModule],
 })
 export class Task3Page implements OnInit, OnDestroy {
+  timeElapsed: number = 0;
+  private intervalId: any;
   private watchId: any; // Variable zum Speichern der Watch-ID
   public currentLocation: { latitude: number; longitude: number } = {
     latitude: 0,
@@ -97,9 +100,9 @@ export class Task3Page implements OnInit, OnDestroy {
     const a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
       Math.cos(this.gradZuRad(coord1.latitude)) *
-      Math.cos(this.gradZuRad(coord2.latitude)) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
+        Math.cos(this.gradZuRad(coord2.latitude)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c; // Distanz in Kilometern
@@ -122,5 +125,10 @@ export class Task3Page implements OnInit, OnDestroy {
     if (this.watchId != null) {
       Geolocation.clearWatch({ id: this.watchId });
     }
+  }
+  private startTimer() {
+    this.intervalId = setInterval(() => {
+      this.timeElapsed++;
+    }, 1000);
   }
 }
