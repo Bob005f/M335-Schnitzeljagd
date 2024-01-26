@@ -6,8 +6,5 @@
 
 <ion-content>
   <ion-button (click)="startScan()"> Start Scan </ion-button>
-  <ion-button *ngIf="CorrectQRCodescanned" routerLink="/next-page"
-    >Weiter</ion-button
-  >
-  <p *ngIf="WrongQRCodeScanned">Falscher QR-Code</p>
+  <ion-button *ngIf="CorrectQRCode" routerLink="/next-page">Weiter</ion-button>
 </ion-content>
