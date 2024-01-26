@@ -12,7 +12,7 @@
     header="Willst du wirklich abbrechen?"
     [buttons]="alertButtons"
   ></ion-alert>
-  <ion-button *ngIf="isCharging">Fertig</ion-button>
+  <ion-button routerLink="/fertig" *ngIf="isCharging">Fertig</ion-button>
 
   <p>Bitte Laden Sie Ihr Gerät um diese Aufgabe abzuschliessen</p>
 </ion-content>

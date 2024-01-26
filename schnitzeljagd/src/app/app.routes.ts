@@ -21,4 +21,8 @@ export const routes: Routes = [
     path: 'task3',
     loadComponent: () => import('./task3/task3.page').then((m) => m.Task3Page),
   },
+  {
+    path: 'fertig',
+    loadComponent: () => import('./fertig/fertig.page').then( m => m.FertigPage)
+  },
 ];
