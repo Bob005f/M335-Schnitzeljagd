@@ -1,13 +1,16 @@
 ion-title {
   font-size: 35px;
   padding-top: 20%;
+  color: #0d0d0d;
+}
+ion-content::part(background) {
+  background: white;
 }
 
-.part-btn {
-  color: red;
-  padding-top: 5%;
-}
+ion-button {
+  --background: white;
+  --background-activated: #a6a6a6;
+  --background-focused: #00ff80;
 
-.content{
-  background-color: white;
+  --color: #818181;
 }
