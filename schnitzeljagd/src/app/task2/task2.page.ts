@@ -18,7 +18,8 @@ import { camera } from 'ionicons/icons';
 export class Task2Page implements OnInit {
   Supported: boolean = true;
   result?: any;
-  CorrectQRCode: boolean = false;
+  CorrectQRCodescanned: boolean = false;
+  WrongQRCodeScanned: boolean = false;
   barcodes: Barcode[] = [];
   constructor(private alertController: AlertController) {}
 
@@ -26,9 +27,13 @@ export class Task2Page implements OnInit {
 
   async startScan() {
     if ((await BarcodeScanner.scan()).barcodes[0].rawValue == 'M335@ICT-BZ') {
-      this.CorrectQRCode = true;
-      await Haptics.vibrate({ duration: 1000 });
-      await Haptics.vibrate({ duration: 100 });
+      this.CorrectQRCodescanned = true;
+      await Haptics.vibrate({ duration: 10 });
+    }
+    if (
+      (await BarcodeScanner.scan()).barcodes[0].rawValue == 'nicht M335@ICT-BZ'
+    ) {
+      this.WrongQRCodeScanned = true;
       await Haptics.vibrate({ duration: 10 });
     }
   }
